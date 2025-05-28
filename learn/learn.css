@@ -1,0 +1,341 @@
+main.container {
+  max-width: 540px;
+  margin: 2.5rem auto 0 auto;
+  padding: 2.2rem 1.5rem 2.5rem 1.5rem;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+  border: 1.5px solid #e6eaf2;
+  animation: fadeInUp 1.2s;
+  flex: 1 0 auto;
+  text-align: center;
+}
+
+#intro {
+  margin-top: 2rem;
+}
+
+#rules {
+  margin-top: 2.5rem;
+  background: #f7f9fb;
+  border-radius: 12px;
+  padding: 1.2rem 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#rules ol {
+  list-style: decimal inside;
+  padding: 0;
+  margin: 0 0 1.2rem 0;
+  text-align: right;
+}
+
+#rules li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e6eaf2;
+  font-size: 1.08rem;
+}
+
+#rules li:last-child {
+  border-bottom: none;
+}
+
+h2, h3 {
+  color: #1976d2;
+  margin-top: 0;
+}
+
+footer {
+  background-color: #003366;
+  color: white;
+  text-align: center;
+  padding: 1.2rem 0 1rem 0;
+  margin-top: 4rem;
+  font-size: 1.02rem;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.07);
+  animation: fadeInUp 1.2s;
+  flex-shrink: 0;
+}
+
+.back-btn {
+  position: fixed;
+  top: 18px;
+  left: 18px;
+  z-index: 10;
+  background: #e6eaf2;
+  color: #003366;
+  border: none;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  transition: background 0.2s, color 0.2s;
+}
+.back-btn:hover {
+  background: #003366;
+  color: #fff;
+}
+
+.learn-windows {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 2.5rem;
+}
+
+.learn-window {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #f7f9fb;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 1.2rem 1.5rem 1.2rem 1.5rem;
+  width: 180px;
+  text-decoration: none;
+  color: #003366;
+  transition: box-shadow 0.2s, background 0.2s;
+  cursor: pointer;
+}
+.learn-window:hover {
+  background: #e6eaf2;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.13);
+}
+.learn-window img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+.learn-window span {
+  font-size: 1.13rem;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+.exercise-section {
+  background: #e6eaf2;
+  border-radius: 12px;
+  padding: 1.2rem 1rem;
+  margin: 2.5rem auto 0 auto;
+  max-width: 420px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.exercise-btn {
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7em 2em;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-top: 1em;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.exercise-btn:hover {
+  background: #003366;
+}
+#exercise-area {
+  margin: 2.5rem auto 0 auto;
+  max-width: 420px;
+  text-align: right;
+}
+
+.exercise-question {
+  background: #fff;
+  border: 2px solid #e6eaf2;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 1.5rem 1.2rem 1.2rem 1.2rem;
+  margin-bottom: 1.2rem;
+}
+
+.exercise-question p {
+  font-size: 1.13rem;
+  font-weight: bold;
+  margin-bottom: 1.2em;
+}
+
+.exercise-question label {
+  display: block;
+  margin-bottom: 0.7em;
+  font-size: 1.08rem;
+  cursor: pointer;
+}
+
+.exercise-question input[type="radio"] {
+  margin-left: 0.5em;
+}
+
+.exercise-question button {
+  background: #04AA6D;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7em 2em;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-top: 1em;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.exercise-question button:hover {
+  background: #038e5a;
+}
+
+#exercise-feedback {
+  margin-top: 1.2em;
+  font-size: 1.08rem;
+}
+
+.exercise-card {
+  background: #fff;
+  border: 2px solid #e6eaf2;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 1.5rem 1.2rem 1.2rem 1.2rem;
+  margin-bottom: 1.2rem;
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: right;
+}
+
+.exercise-card h2 {
+  font-size: 1.25rem;
+  margin: 0 0 1.2em 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.questionmark {
+  display: inline-block;
+  background: #1976d2;
+  color: #fff;
+  border-radius: 50%;
+  width: 1.5em;
+  height: 1.5em;
+  text-align: center;
+  line-height: 1.5em;
+  font-weight: bold;
+  font-size: 1.1em;
+  cursor: help;
+  margin-right: 0.2em;
+}
+
+.exercise-qtext {
+  font-size: 1.13rem;
+  font-weight: bold;
+  margin-bottom: 1.2em;
+  color: #1976d2;
+}
+.exercise-q {
+  color: #222;
+  font-weight: normal;
+}
+
+.quizoption {
+  margin-bottom: 0.7em;
+  font-size: 1.08rem;
+}
+
+.quizoption input[type="radio"] {
+  margin-left: 0.5em;
+}
+
+.ws-btn {
+  background: #04AA6D;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7em 2em;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-top: 1em;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.ws-btn:hover {
+  background: #038e5a;
+}
+
+#exercise-feedback {
+  margin-top: 1.2em;
+  font-size: 1.08rem;
+}
+
+.exercise-correct {
+  color: #04AA6D;
+  font-weight: bold;
+  font-size: 1.13em;
+}
+.exercise-wrong {
+  color: #b71c1c;
+  font-weight: bold;
+  font-size: 1.13em;
+}
+.exercise-warn {
+  color: #b71c1c;
+  font-weight: bold;
+}
+.exercise-explain {
+  margin-top: 0.5em;
+  color: #1976d2;
+  font-size: 1em;
+}
+.exercise-summary {
+  font-size: 1.15em;
+  margin: 1.2em 0 1.5em 0;
+  color: #1976d2;
+}
+.gimel-sentence {
+  font-family: inherit;
+  font-size: 1.13em;
+  margin-bottom: 1em;
+}
+.dropzone {
+  display: inline-block;
+  min-width: 60px;
+  min-height: 1.2em;
+  border-bottom: 2px dashed #1976d2;
+  background: #e6eaf2;
+  color: #1976d2;
+  font-weight: bold;
+  text-align: center;
+  transition: background 0.2s;
+  cursor: pointer;
+}
+.dropzone.filled {
+  background: #d1f5e0;
+  color: #04AA6D;
+  border-bottom: 2px solid #04AA6D;
+}
+.drag-options {
+  margin-bottom: 1em;
+}
+.drag-item {
+  background: #f7f9fb;
+  border: 1.5px solid #e6eaf2;
+  border-radius: 8px;
+  padding: 0.5em 1.2em;
+  cursor: grab;
+  font-size: 1.08em;
+  transition: background 0.2s, border 0.2s;
+  user-select: none;
+}
+.drag-item:active {
+  background: #e6eaf2;
+  border-color: #1976d2;
+}

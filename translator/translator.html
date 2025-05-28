@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>מתרגם שה"ג | האקדמיה לשה"ג</title>
+  <link rel="stylesheet" href="../style/main.css" />
+  <link rel="stylesheet" href="translator.css" />
+</head>
+<body>
+  <div id="hebrew-bg"></div>
+
+  <header>
+    <div class="container">
+      <h1>האקדמיה לשה"ג</h1>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="../home/home.html">דף הבית</a></li>
+      <li class="active"><a href="translator.html">מתרגם שה"ג</a></li>
+      <li><a href="../learn/learn.html">למד שה"ג</a></li>
+      <li><a href="../forum/forum.html">פורום</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <section id="translator">
+      <h2>מתרגם שפת הג'</h2>
+        <div class="translator-notice">
+          <p>
+            <strong>שימו לב:</strong> המתרגם עדיין לא מושלם, והאלגוריתמים שלו נמצאים בפיתוח מתמיד.<br>
+            הוא עובד בצורה הטובה ביותר עם טקסט מנוקד.<br>
+            אם מצאתם בעיה או טעות, אפשר לדווח ל־<b>StivoMix</b> בדיסקורד.<br>
+            תודה על הסבלנות והשימוש!
+          </p>
+        </div>
+      <div class="translator-toolbar">
+        <button id="settingsBtn" title="הגדרות תרגום">⚙️</button>
+        <button id="clearBtn" title="נקה שדה">🧹</button>
+      </div>
+      <div id="settingsPanel" class="settings-panel" style="display:none;">
+        <label class="checkbox-container">
+          <input type="checkbox" id="showNikud" checked>
+          הצג ניקוד
+        </label>
+        <label>
+          <input type="checkbox" id="highlightGimel">
+          הדגש גימלים נוספים
+        </label>
+        <label>
+          <input type="checkbox" id="highlightExtra">
+          הדגש תווים נוספים
+        </label>
+        <label>
+          <input type="checkbox" id="highlightSyllables">
+          הדגש הברות ואי הברות
+        </label>
+      </div>
+      <label for="inputText">הכנס טקסט בעברית:</label>
+      <textarea id="inputText" placeholder="כתוב כאן..." oninput="validateHebrew(this)"></textarea>
+      <button onclick="translateText()">תרגם לשה"ג</button>
+      <div id="output">
+        <h3>פלט:</h3>
+        <p id="translatedText"></p>
+      </div>
+      <button id="copyButton" style="float: left; margin-bottom: 0.5rem;">העתק</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>כל הזכויות שמורות © האקדמיה לשה"ג</p>
+  </footer>
+
+  <script src="translator.js"></script>
+  <script src="../script/bg.js"></script>
+</body>
+</html>

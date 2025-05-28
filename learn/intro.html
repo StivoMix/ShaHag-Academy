@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>מבוא לשפת הג' | למד שה"ג</title>
+  <link rel="stylesheet" href="../style/main.css" />
+  <link rel="stylesheet" href="learn.css" />
+</head>
+<body>
+  <div id="hebrew-bg"></div>
+  <header>
+    <div class="container">
+      <h1>מבוא לשפת הג'</h1>
+    </div>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="../home/home.html">דף הבית</a></li>
+      <li><a href="../translator/translator.html">מתרגם שה"ג</a></li>
+      <li class="active"><a href="learn.html">למד שה"ג</a></li>
+      <li><a href="../forum/forum.html">פורום</a></li>
+    </ul>
+  </nav>
+  <button class="back-btn" onclick="window.location.href='learn.html'" title="חזור">←</button>
+  <main class="container" style="text-align:center;">
+    <section id="intro">
+      <h2>מבוא לשפת הג'</h2>
+      <p>
+        <strong>שפת הג'</strong> היא שפה משחקית, חצי-סודית, המבוססת על השפה העברית.<br>
+        מקורה אינו ברור לחלוטין (למרות שקיימות מספר תיאוריות המפנות אותנו לכך שהיא נוצרה ע"י אמיתי כביר, מלך הג'), אך היא נפוצה בעיקר בקרב ילדים ובני נוער בישראל, במיוחד במשחקים, חידות, או לצורך דיבור מוצפן.
+      </p>
+      <p>
+        בשפת הג', מוסיפים את האות <b>ג'</b> (ולעיתים גם תווים נוספים) אחרי כל הברה במילה, לפי כללים מסוימים.<br>
+        כך נוצרת גרסה "מקודדת" של העברית, שקל לזהות אך קשה להבין למי שלא מכיר את השיטה.
+      </p>
+      <p>
+        השפה משמשת למשחק, להצפנה קלה של מסרים, ולפעמים גם כדרך משעשעת לתרגל הברות, ניקוד, והיכרות עם מבנה השפה העברית.
+      </p>
+    </section>
+    <section id="rules">
+      <h3>הכללים של שפת הג' (לפי העברית)</h3>
+      <ol>
+        <li>אחרי כל הברה (צליל), מוסיפים את האות <b>ג'</b> ולעיתים ניקוד מתאים.</li>
+        <li>אם ההברה מסתיימת בתנועה (ניקוד), מוסיפים את הגימל מיד אחריה.</li>
+        <li>בהברות עם י' או ו' מחוברות (כמו "או" ו-"אי"), מוסיפים גם אותיות אלו אחרי הגימל.</li>
+        <li>אם אין ניקוד, מוסיפים גימל אחרי כל תנועה אפשרית, לפי כללי השפה או לפי הקשר המילה.</li>
+        <li>יש לשים לב להברות סגורות, הברות פתוחות, ותנועות שווא.</li>
+        <li>יש יוצאים מן הכלל, במיוחד במילים עם ניקוד שווא, דגש, או אותיות סופיות.</li>
+      </ol>
+      <p>
+        <b>דוגמה:</b> המילה <span dir="ltr">"שָׁלוֹם"</span> תהפוך ל־<span dir="ltr">"שַגַּלוֹגּוֹם"</span> בשפת הג'.
+      </p>
+    </section>
+    <section id="exercise-intro" class="exercise-section">
+      <h3>תרגול: בדקו את ההבנה שלכם</h3>
+      <p>רוצים לבדוק אם הבנתם את החומר? לחצו על הכפתור ונסו לענות על שאלות קצרות בנושא המבוא לשפת הג'.</p>
+      <button class="exercise-btn" onclick="startExercise()">לתרגול</button>
+    </section>
+    <div id="exercise-area"></div>
+  </main>
+  <footer>
+    <p>כל הזכויות שמורות © האקדמיה לשה"ג</p>
+  </footer>
+  <script src="../script/bg.js"></script>
+  <script src="learn.js"></script>
+</body>
+</html>

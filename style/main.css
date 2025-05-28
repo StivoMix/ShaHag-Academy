@@ -1,0 +1,198 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  font-family: "Noto Sans Hebrew", "Segoe UI", Arial, sans-serif;
+  margin: 0;
+  background: linear-gradient(135deg, #e6eaf2 0%, #f7f9fb 100%);
+  color: #222;
+  min-height: 100vh;
+  direction: rtl;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+header {
+  background: linear-gradient(to left, #003366, #005599 80%);
+  color: white;
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.13);
+  animation: fadeInDown 1s;
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-40px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+main.container {
+  max-width: 540px;
+  margin: 2.5rem auto 0 auto;
+  padding: 2.2rem 1.5rem 2.5rem 1.5rem;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+  border: 1.5px solid #e6eaf2;
+  animation: fadeInUp 1.2s;
+  flex: 1 0 auto;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+footer {
+  background-color: #003366;
+  color: white;
+  text-align: center;
+  padding: 1.2rem 0 1rem 0;
+  margin-top: 4rem;
+  font-size: 1.02rem;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.07);
+  animation: fadeInUp 1.2s;
+  flex-shrink: 0;
+}
+
+nav {
+  background-color: #dce3ea;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid #aaa;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+nav li {
+  padding: 0.6rem 1.2rem;
+  font-weight: bold;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+  background: transparent;
+}
+
+nav li:hover, nav li.active {
+  background-color: #003366;
+  color: #fff;
+}
+
+nav a {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  height: 100%;
+  transition: color 0.2s;
+}
+
+nav li:hover a,
+nav li.active a {
+  color: #fff;
+}
+
+@media (max-width: 700px) {
+  main.container {
+    padding: 0.7rem;
+    max-width: 98vw;
+  }
+  #output {
+    padding: 0.7rem;
+    font-size: 1rem;
+  }
+  .settings-panel {
+    padding: 0.5rem;
+    font-size: 0.97rem;
+  }
+  textarea {
+    font-size: 1rem;
+    padding: 0.7rem;
+  }
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; right: 0; bottom: 0; left: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(120deg, #e6eaf2 0%, #c2ccd6 50%, #005599 100%);
+  opacity: 0.7;
+  animation: bgMove 1s ease-in-out infinite alternate;
+}
+
+@keyframes bgMove {
+  0% {
+    background-position: 0% 50%;
+    filter: blur(0px);
+  }
+  50% {
+    background-position: 100% 50%;
+    filter: blur(2px);
+  }
+  100% {
+    background-position: 0% 50%;
+    filter: blur(0px);
+  }
+}
+
+#hebrew-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.hebrew-float {
+  position: absolute;
+  font-size: 2.2rem;
+  font-family: "Noto Sans Hebrew", "Segoe UI", Arial, sans-serif;
+  color: #00559988;
+  opacity: 0.7;
+  animation: floatHebrew 12s linear infinite;
+  user-select: none;
+  filter: blur(0.5px);
+  will-change: transform, opacity;
+}
+
+@keyframes floatHebrew {
+  0% {
+    transform: translateY(110vh) scale(1) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  85% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-10vh) scale(1.2) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+body > * {
+  position: relative;
+  z-index: 1;
+}
