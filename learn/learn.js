@@ -1,102 +1,208 @@
-const exercises = [
-  {
-    q: "מהי שפת הג'?",
-    options: [
-      "שפה סודית המבוססת על העברית",
-      "שפה רשמית בישראל",
-      "שפת תכנות"
-    ],
-    correct: 0,
-    explain: "שפת הג' היא שפה משחקית-סודית המבוססת על העברית."
-  },
-  {
-    q: "מה עושים אחרי כל הברה בשפת הג'?",
-    options: [
-      "מוסיפים את האות ג'",
-      "מוסיפים את האות ד'",
-      "לא מוסיפים כלום"
-    ],
-    correct: 0,
-    explain: "אחרי כל הברה מוסיפים את האות ג'."
-  },
-  {
-    q: "מה עושים כאשר ההברה מסתיימת בתנועה (ניקוד)?",
-    options: [
-      "מוסיפים את הגימל מיד אחריה",
-      "מוסיפים את הגימל בתחילת המילה",
-      "לא מוסיפים גימל"
-    ],
-    correct: 0,
-    explain: "אם ההברה מסתיימת בתנועה, מוסיפים את הגימל מיד אחריה."
-  },
-  {
-    q: "מה עושים בהברות עם י' או ו' מחוברות (כמו 'או')?",
-    options: [
-      "מוסיפים גם אותיות אלו אחרי הגימל",
-      "לא מוסיפים אותיות נוספות",
-      "מוסיפים רק את הגימל"
-    ],
-    correct: 0,
-    explain: "בהברות עם י' או ו' מחוברות, מוסיפים גם אותיות אלו אחרי הגימל."
-  },
-  {
-    q: "מה עושים במילים לא מנוקדות?",
-    options: [
-      "מוסיפים גימל אחרי כל אות חוץ מהאות האחרונה ולפי חוקי השפה או לפי הקשר המילה",
-      "לא מוסיפים גימל בכלל",
-      "מוסיפים גימל רק בסוף המילה",
-      "מוסיפים גימל אחרי כל אות"
-    ],
-    correct: 0,
-    explain: "במילים לא מנוקדות, מוסיפים גימל אחרי כל אות."
-  },
-  {
-    q: "מה יש לשים לב אליו בשפת הג'?",
-    options: [
-      "הברות סגורות, הברות פתוחות ותנועות שווא",
-      "רק הברות פתוחות",
-      "אין צורך לשים לב לכלום"
-    ],
-    correct: 0,
-    explain: "יש לשים לב להברות סגורות, הברות פתוחות ותנועות שווא."
-  },
+const exerciseSets = { // clear all button needs fix
+  intro: [
     {
-    type: "input",
-    q: "(אין צורך בניקוד אך צריך להתייחס לניקוד ההקשרי למילה) מהי צורת שפת הג' של המילה: שלום",
-    answer: "שגלוגום",
-    explain: "צורת שפת הג' של שלום היא שגלוגום."
-  },
-  {
-    type: "input",
-    q: "(אין צורך בניקוד אך צריך להתייחס לניקוד ההקשרי למילה) מהי צורת שפת הג' של המילה: חבר",
-    answer: "חגבגר",
-    explain: "צורת שפת הג' של חבר היא חגבגר."
-  },
-  {
-    type: "input",
-    q: "(אין צורך בניקוד אך צריך להתייחס לניקוד ההקשרי למילה) מהי צורת שפת הג' של המילה: שמור",
-    answer: "שגמוגור",
-    explain: "צורת שפת הג' של שמור היא שגמוגור."
-  },
-  {
-    type: "drag",
-    q: "השלימו את המשפט בשפת הג' עבור: אני אוהב עברית",
-    gimel: "אגניגי אוגוהגב עגבריגית",
-    blank: "אוגוהגב",
-    options: ["אוגוהגב", "אוגהגב", "אוגוהגבג"],
-    correct: 0,
-    explain: "אני אוהב עברית ← אגניגי אוגוהגב עגבריגית"
-  },
-  {
-    type: "drag",
-    q: "השלימו את המשפט בשפת הג' עבור: אתמול קראתי ספר טוב",
-    gimel: "אגתמוגול קגרגאגתיגי סגפגר טוגוב",
-    blank: "טוגוב",
-    options: ["טוגוב", "טוגב", "טוגובג"],
-    correct: 0,
-    explain: "אתמול קראתי ספר טוב ← אגתמוגול קגרגאגתיגי סגפגר טוגוב"
-  }
-];
+      q: "מהי שפת הג'?",
+      options: [
+        "שפה סודית המבוססת על העברית",
+        "שפה רשמית בישראל",
+        "שפת תכנות"
+      ],
+      correct: 0,
+      explain: "שפת הג' היא שפה משחקית-סודית המבוססת על העברית."
+    },
+    {
+      q: "מה עושים אחרי כל הברה בשפת הג'?",
+      options: [
+        "מוסיפים את האות ג'",
+        "מוסיפים את האות ד'",
+        "לא מוסיפים כלום"
+      ],
+      correct: 0,
+      explain: "אחרי כל הברה מוסיפים את האות ג'."
+    },
+    {
+      q: "מה עושים כאשר ההברה מסתיימת בתנועה (ניקוד)?",
+      options: [
+        "מוסיפים את הגימל מיד אחריה",
+        "מוסיפים את הגימל בתחילת המילה",
+        "לא מוסיפים גימל"
+      ],
+      correct: 0,
+      explain: "אם ההברה מסתיימת בתנועה, מוסיפים את הגימל מיד אחריה."
+    },
+    {
+      q: "מה עושים בהברות עם י' או ו' מחוברות (כמו 'או')?",
+      options: [
+        "מוסיפים גם אותיות אלו אחרי הגימל",
+        "לא מוסיפים אותיות נוספות",
+        "מוסיפים רק את הגימל"
+      ],
+      correct: 0,
+      explain: "בהברות עם י' או ו' מחוברות, מוסיפים גם אותיות אלו אחרי הגימל."
+    },
+    {
+      q: "מה עושים במילים לא מנוקדות?",
+      options: [
+        "מוסיפים גימל אחרי כל אות חוץ מהאות האחרונה ולפי חוקי השפה או לפי הקשר המילה",
+        "לא מוסיפים גימל בכלל",
+        "מוסיפים גימל רק בסוף המילה",
+        "מוסיפים גימל אחרי כל אות"
+      ],
+      correct: 0,
+      explain: "במילים לא מנוקדות, מוסיפים גימל אחרי כל אות."
+    },
+    {
+      q: "מה יש לשים לב אליו בשפת הג'?",
+      options: [
+        "הברות סגורות, הברות פתוחות ותנועות שווא",
+        "רק הברות פתוחות",
+        "אין צורך לשים לב לכלום"
+      ],
+      correct: 0,
+      explain: "יש לשים לב להברות סגורות, הברות פתוחות ותנועות שווא."
+    },
+    {
+      type: "input",
+      q: "(אין צורך בניקוד אך צריך להתייחס לניקוד ההקשרי למילה) מהי צורת שפת הג' של המילה: שלום",
+      answer: "שגלוגום",
+      explain: "צורת שפת הג' של שלום היא שגלוגום."
+    },
+    {
+      type: "input",
+      q: "(אין צורך בניקוד אך צריך להתייחס לניקוד ההקשרי למילה) מהי צורת שפת הג' של המילה: חבר",
+      answer: "חגבגר",
+      explain: "צורת שפת הג' של חבר היא חגבגר."
+    },
+    {
+      type: "input",
+      q: "(אין צורך בניקוד אך צריך להתייחס לניקוד ההקשרי למילה) מהי צורת שפת הג' של המילה: שמור",
+      answer: "שגמוגור",
+      explain: "צורת שפת הג' של שמור היא שגמוגור."
+    },
+    {
+      type: "drag",
+      q: "השלימו את המשפט בשפת הג' עבור: אני אוהב עברית",
+      gimel: "אגניגי אוגוהגב עגבריגית",
+      blank: "אוגוהגב",
+      options: ["אוגוהגב", "אוגהגב", "אוגוהגבג"],
+      correct: 0,
+      explain: "אני אוהב עברית ← אגניגי אוגוהגב עגבריגית"
+    },
+    {
+      type: "drag",
+      q: "השלימו את המשפט בשפת הג' עבור: אתמול קראתי ספר טוב",
+      gimel: "אגתמוגול קגרגאגתיגי סגפגר טוגוב",
+      blank: "טוגוב",
+      options: ["טוגוב", "טוגב", "טוגובג"],
+      correct: 0,
+      explain: "אתמול קראתי ספר טוב ← אגתמוגול קגרגאגתיגי סגפגר טוגוב"
+    }
+  ],
+  syllable: [
+    {
+      q: "מהי הברה פתוחה?",
+      options: [
+        "הברה שמסתיימת בתנועה",
+        "הברה שמסתיימת בעיצור",
+        "הברה שמתחילה בתנועה"
+      ],
+      correct: 0,
+      explain: "הברה פתוחה מסתיימת בתנועה (למשל: 'כַּ', 'מוֹ')."
+    },
+    {
+      q: "מהי הברה סגורה?",
+      options: [
+        "הברה שמסתיימת בתנועה",
+        "הברה שמסתיימת בעיצור",
+        "הברה שמתחילה בתנועה"
+      ],
+      correct: 1,
+      explain: "הברה סגורה מסתיימת בעיצור (למשל: 'לוֹם' ב'שלום')."
+    },
+    {
+      q: "מהי הברה מורכבת?",
+      options: [
+        "הברה עם י' או ו' כחלק מהתנועה",
+        "הברה שמתחילה בעיצור",
+        "הברה שמסתיימת בשווא"
+      ],
+      correct: 0,
+      explain: "הברה מורכבת כוללת י' או ו' כחלק מהתנועה (כמו 'אי', 'או')."
+    },
+        {
+      type: "split",
+      q: "(אין צורך בכתיבה מנוקדת) חלקו את המילה להברות: שָׁלוֹם",
+      word: "שלום",
+      syllables: ["ש", "לום"],
+      explain: "שלום מתחלק להברות: שָׁ-לוֹם"
+    },
+    {
+      type: "split",
+      q: "(אין צורך בכתיבה מנוקדת) חלקו את המילה להברות: מוֹרֶה",
+      word: "מורה",
+      syllables: ["מו", "רה"],
+      explain: "מורה מתחלק להברות: מוֹ-רֶה"
+    },
+    {
+      type: "split",
+      q: "(אין צורך בכתיבה מנוקדת) חלקו את המילה להברות: חַלּוֹן",
+      word: "חלון",
+      syllables: ["ח", "לון"],
+      explain: "חלון מתחלק להברות: חַ-לּוֹן"
+    },
+    {
+      type: "split",
+      q: "(אין צורך בכתיבה מנוקדת) חלקו את המילה להברות: בַּיִת",
+      word: "בית",
+      syllables: ["ב", "ית"],
+      explain: "בית מתחלק להברות: בַּ-יִת"
+    },
+    {
+      type: "split",
+      q: "(אין צורך בכתיבה מנוקדת) חלקו את המילה להברות: יְלָדִים",
+      word: "ילדים",
+      syllables: ["י", "ל", "דים"],
+      explain: "ילדים מתחלק להברות: יְ-לָ-דִים"
+    },
+    {
+      type: "split",
+      q: "(אין צורך בכתיבה מנוקדת) חלקו את המילה להברות: תִּינוֹק",
+      word: "תינוק",
+      syllables: ["תי", "נוק"],
+      explain: "תינוק מתחלק להברות: תִּי-נוֹק"
+    },
+    {
+      type: "split-drag",
+      q: "(לחצו פעמיים להסרה) גררו את ההברות למקום הנכון: חומצה",
+      word: "חומצה",
+      syllables: ["חֻו", "מְ", "צָה"],
+      options: ["חֻו", "מְ", "צָה", "חוּ", "מָה", "צָ", "חֻמְ", "צָה", "מְצָה"],
+      explain: "חומצה מתחלק להברות: חֻו-מְ-צָה"
+    },
+    {
+      type: "split-drag",
+      q: "(לחצו פעמיים להסרה) גררו את ההברות למקום הנכון: ספרים",
+      word: "ספרים",
+      syllables: ["סְ", "פָ", "רִים"],
+      options: ["פָ", "סְ", "רִים", "סֵפֶר", "ים", "רִ", "סְפָ"],
+      explain: "ספרים מתחלק להברות: סְ-פָ-רִים"
+    },
+    {
+      type: "split-drag",
+      q: "(לחצו פעמיים להסרה) גררו את ההברות למקום הנכון: מחשב",
+      word: "מחשב",
+      syllables: ["מַ", "חְ", "שֵב"],
+      options: ["מַחְ", "חְ", "שֵ", "מָ", "שֵב", "ב"],
+      explain: "מחשב מתחלק להברות: מַ-חְ-שֵב"
+    }
+  ]
+};
+
+function getLessonKey() {
+  const path = window.location.pathname;
+  if (path.includes("syllable")) return "syllable";
+  return "intro";
+}
 
 let currentQ = 0;
 let score = 0;
@@ -123,9 +229,11 @@ function shuffleOptions(options, correctIdx) {
 function startExercise() {
   const intro = document.getElementById('exercise-intro');
   if (intro) intro.style.display = 'none';
-  
+
   currentQ = 0;
   score = 0;
+  const lessonKey = getLessonKey();
+  const exercises = exerciseSets[lessonKey] || [];
   exerciseOrder = shuffleArray(exercises.slice()).map(q => {
     if (q.options && Array.isArray(q.options)) {
       const shuffled = shuffleOptions(q.options, q.correct);
@@ -180,6 +288,21 @@ function showExerciseQuestion() {
       <div id="exercise-feedback"></div>
     `;
   }
+  else if (ex.type === "split") {
+    html += `
+      <form id="exercise-form" onsubmit="event.preventDefault(); checkExercise();">
+        <div class="split-word-inputs" style="display:flex;gap:0.5em;justify-content:center;align-items:center;">
+          ${ex.syllables.map((_, i) =>
+            `<input type="text" class="split-syllable" id="split${i}" autocomplete="off" style="width:60px;text-align:center;font-size:1.1em;padding:0.3em 0.2em;border-radius:7px;border:1.5px solid #e6eaf2;">
+            ${i < ex.syllables.length - 1 ? '<span style="font-weight:bold;">-</span>' : ''}`
+          ).join('')}
+        </div>
+        <div style="margin-top:0.7em;font-size:1.05em;color:#888;">${ex.word}</div>
+        <button type="submit" class="ws-btn" id="exercise-btn">בדוק תשובה »</button>
+      </form>
+      <div id="exercise-feedback"></div>
+    `;
+  }
   else if (ex.type === "drag") {
     html += `
       <div class="gimel-sentence" style="font-size:1.15em;margin-bottom:1.2em;">
@@ -191,6 +314,28 @@ function showExerciseQuestion() {
         `).join('')}
       </div>
       <button class="ws-btn" id="exercise-btn" onclick="checkExercise()">בדוק תשובה »</button>
+      <div id="exercise-feedback"></div>
+    `;
+  }
+  else if (ex.type === "split-drag") {
+    const dragOptions = shuffleArray(ex.options.slice());
+    html += `
+      <form id="exercise-form" onsubmit="event.preventDefault(); checkExercise();">
+        <div class="split-word-inputs" style="display:flex;gap:0.5em;justify-content:center;align-items:center;">
+          ${ex.syllables.map((_, i) =>
+            `<span class="split-dropzone" id="split-dropzone${i}" data-option="" style="display:inline-block;min-width:60px;min-height:2em;border-bottom:2px dashed #1976d2;background:#e6eaf2;color:#1976d2;font-weight:bold;text-align:center;border-radius:7px;margin:0 2px;"></span>
+            ${i < ex.syllables.length - 1 ? '<span style="font-weight:bold;">-</span>' : ''}`
+          ).join('')}
+        </div>
+        <div class="drag-options" id="drag-options" style="display:flex;flex-wrap:wrap;gap:1em;justify-content:center;margin:1em 0;max-width:420px;">
+          ${dragOptions.map((opt, i) => `
+            <div class="drag-item" draggable="true" data-option="${opt}" ondragstart="dragStart(event,${i})" id="drag${i}" style="margin-bottom:0.5em;">${opt}</div>
+          `).join('')}
+        </div>
+        <div style="margin-top:0.7em;font-size:1.05em;color:#888;">${ex.word}</div>
+        <button type="button" class="ws-btn" id="reset-split-drag-btn" style="margin-top:0.7em;">אפס הכל</button>
+        <button type="submit" class="ws-btn" id="exercise-btn">בדוק תשובה »</button>
+      </form>
       <div id="exercise-feedback"></div>
     `;
   }
@@ -208,6 +353,74 @@ function showExerciseQuestion() {
       dropzone.setAttribute("data-idx", idx);
       dropzone.classList.add("filled");
     };
+  }
+  if (ex.type === "split-drag") {
+    function updateDragLayout() {
+      const dragOptionsDiv = document.getElementById('drag-options');
+      const items = Array.from(dragOptionsDiv.querySelectorAll('.drag-item'));
+      const visibleItems = items.filter(item => item.style.visibility !== "hidden");
+      items.forEach(item => dragOptionsDiv.removeChild(item));
+      visibleItems.forEach(item => dragOptionsDiv.appendChild(item));
+    }
+
+    document.querySelectorAll('.drag-item').forEach(item => {
+      item.ondragstart = function(e) {
+        e.dataTransfer.setData("text/plain", item.getAttribute('data-option'));
+        setTimeout(() => item.classList.add('dragging'), 0);
+      };
+      item.ondragend = function() {
+        item.classList.remove('dragging');
+      };
+    });
+
+    document.querySelectorAll('.split-dropzone').forEach(zone => {
+      zone.ondragover = e => e.preventDefault();
+      zone.ondrop = function(e) {
+        e.preventDefault();
+        const text = e.dataTransfer.getData("text/plain");
+        if (zone.textContent.trim() === "") {
+          zone.textContent = text;
+          zone.setAttribute('data-option', text);
+          zone.classList.add("filled");
+          document.querySelectorAll('.drag-item').forEach(item => {
+            if (item.getAttribute('data-option') === text) item.style.visibility = "hidden";
+          });
+          updateDragLayout();
+        }
+      };
+      zone.ondblclick = function() {
+        const text = zone.getAttribute('data-option');
+        if (zone.textContent.trim() !== "" && text) {
+          document.querySelectorAll('.drag-item').forEach(item => {
+            if (item.getAttribute('data-option') === text) {
+              item.style.visibility = "";
+              item.setAttribute('draggable', true);
+            }
+          });
+          zone.textContent = "";
+          zone.setAttribute('data-option', "");
+          zone.classList.remove("filled");
+          updateDragLayout();
+        }
+      };
+    });
+
+    const resetBtn = document.getElementById('reset-split-drag-btn');
+    if (resetBtn) {
+      resetBtn.onclick = function() {
+        document.querySelectorAll('.split-dropzone').forEach(zone => {
+          zone.textContent = "";
+          zone.setAttribute('data-option', "");
+          zone.classList.remove("filled");
+        });
+        document.querySelectorAll('.drag-item').forEach(item => {
+          item.style.visibility = "";
+          item.setAttribute('draggable', true);
+        });
+        updateDragLayout();
+      };
+    }
+    updateDragLayout();
   }
 }
 
@@ -242,6 +455,20 @@ function checkExercise() {
       feedback.innerHTML = `<span class="exercise-wrong">✖ לא נכון.</span><div class="exercise-explain">${ex.explain}</div>`;
     }
   }
+  else if (ex.type === "split") {
+    let correct = true;
+    for (let i = 0; i < ex.syllables.length; i++) {
+      const userVal = (document.getElementById(`split${i}`).value || "").replace(/\s/g, "");
+      const correctVal = ex.syllables[i].replace(/\s/g, "");
+      if (userVal !== correctVal) correct = false;
+    }
+    if (correct) {
+      score++;
+      feedback.innerHTML = `<span class="exercise-correct">✔ נכון!</span><div class="exercise-explain">${ex.explain}</div>`;
+    } else {
+      feedback.innerHTML = `<span class="exercise-wrong">✖ לא נכון.</span><div class="exercise-explain">${ex.explain}</div>`;
+    }
+  }
   else if (ex.type === "drag") {
     const dropzone = document.getElementById('dropzone');
     const idx = dropzone.getAttribute("data-idx");
@@ -256,12 +483,40 @@ function checkExercise() {
       feedback.innerHTML = `<span class="exercise-wrong">✖ לא נכון.</span><div class="exercise-explain">${ex.explain}</div>`;
     }
   }
+  else if (ex.type === "split-drag") {
+    let correct = true;
+    for (let i = 0; i < ex.syllables.length; i++) {
+      const zone = document.getElementById(`split-dropzone${i}`);
+      const userVal = (zone.textContent || "").replace(/\s/g, "");
+      const correctVal = ex.syllables[i].replace(/\s/g, "");
+      if (userVal !== correctVal) correct = false;
+    }
+    if (correct) {
+      score++;
+      feedback.innerHTML = `<span class="exercise-correct">✔ נכון!</span><div class="exercise-explain">${ex.explain}</div>`;
+    } else {
+      feedback.innerHTML = `<span class="exercise-wrong">✖ לא נכון.</span><div class="exercise-explain">${ex.explain}</div>`;
+    }
+    document.querySelectorAll('.drag-item').forEach(item => item.setAttribute('draggable', false));
+    document.querySelectorAll('.split-dropzone').forEach(zone => {
+      zone.ondrop = null;
+      zone.ondragover = null;
+      zone.ondblclick = null;
+    });
+    const resetBtn = document.getElementById('reset-split-drag-btn');
+    if (resetBtn) resetBtn.style.display = "none";
+    btn.textContent = (currentQ < exerciseOrder.length - 1) ? "המשך" : "סיים תרגול";
+    btn.onclick = nextExercise;
+    btn.type = "button";
+    return;
+  }
 
   btn.textContent = (currentQ < exerciseOrder.length - 1) ? "המשך" : "סיים תרגול";
   btn.onclick = nextExercise;
   btn.type = "button";
   if (!ex.type) document.querySelectorAll('input[name="q"]').forEach(input => input.disabled = true);
   if (ex.type === "input") document.getElementById('gimelInput').disabled = true;
+  if (ex.type === "split") document.querySelectorAll('.split-syllable').forEach(input => input.disabled = true);
   if (ex.type === "drag") {
     document.querySelectorAll('.drag-item').forEach(item => item.setAttribute('draggable', false));
     document.getElementById('dropzone').ondrop = null;
