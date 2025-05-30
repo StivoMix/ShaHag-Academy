@@ -1,4 +1,4 @@
-const exerciseSets = { // clear all button needs fix
+const exerciseSets = {
   intro: [
     {
       q: "מהי שפת הג'?",
@@ -112,22 +112,12 @@ const exerciseSets = { // clear all button needs fix
     {
       q: "מהי הברה סגורה?",
       options: [
-        "הברה שמסתיימת בתנועה",
         "הברה שמסתיימת בעיצור",
+        "הברה שמסתיימת בתנועה",
         "הברה שמתחילה בתנועה"
       ],
-      correct: 1,
-      explain: "הברה סגורה מסתיימת בעיצור (למשל: 'לוֹם' ב'שלום')."
-    },
-    {
-      q: "מהי הברה מורכבת?",
-      options: [
-        "הברה עם י' או ו' כחלק מהתנועה",
-        "הברה שמתחילה בעיצור",
-        "הברה שמסתיימת בשווא"
-      ],
       correct: 0,
-      explain: "הברה מורכבת כוללת י' או ו' כחלק מהתנועה (כמו 'אי', 'או')."
+      explain: "הברה סגורה מסתיימת בעיצור (למשל: 'לוֹם' ב'שלום')."
     },
         {
       type: "split",
@@ -192,21 +182,43 @@ const exerciseSets = { // clear all button needs fix
       q: "(לחצו פעמיים להסרה) גררו את ההברות למקום הנכון: מחשב",
       word: "מחשב",
       syllables: ["מַ", "חְ", "שֵב"],
-      options: ["מַחְ", "חְ", "שֵ", "מָ", "שֵב", "ב"],
+      options: ["מַחְ", "חְ", "שֵ", "מַ", "שֵב", "ב"],
       explain: "מחשב מתחלק להברות: מַ-חְ-שֵב"
+    },
+    {
+      type: "syllable-type",
+      q: "סמנו את סוגי ההברות במילה: גְּזָרִים",
+      word: "גְּזָרִים",
+      syllables: ["גְּ", "זָ", "רִים"],
+      types: ["הברה סגורה", "הברה פתוחה", "הברה סגורה"],
+      explain: "גְּ – הברה סגורה (מסתיימת בעיצור), זָ – הברה פתוחה (מסתיימת בתנועה), רִים – הברה סגורה (מסתיימת בעיצור ם)."
+    },
+    {
+      type: "syllable-type",
+      q: "סמנו את סוגי ההברות במילה: מְכוֹנִית",
+      word: "מְכוֹנִית",
+      syllables: ["מְ", "כוֹ", "נִית"],
+      types: ["הברה סגורה", "הברה פתוחה", "הברה סגורה"],
+      explain: "מְ – הברה סגורה (מסתיימת בעיצור), כוֹ – הברה פתוחה (התנועה כוללת את ו' אך אינה נסגרת בעיצור), נִית – הברה סגורה (מסתיימת בעיצור ת')."
+    },
+    {
+      type: "syllable-type",
+      q: "סמנו את סוגי ההברות במילה: שׁוּלְחָן",
+      word: "שׁוּלְחָן",
+      syllables: ["שׁוּל", "חָן"],
+      types: ["הברה סגורה", "הברה סגורה"],
+      explain: "שׁוּל – הברה סגורה (מסתיימת בעיצור ל'), חָן – הברה סגורה (מסתיימת בעיצור ן)."
+    },
+    {
+      type: "syllable-type",
+      q: "סמנו את סוגי ההברות במילה: עוּגָה",
+      word: "עוּגָה",
+      syllables: ["עוּ", "גָה"],
+      types: ["הברה פתוחה", "הברה פתוחה"],
+      explain: "עוּ – הברה פתוחה (התנועה כוללת את ו' אך אינה נסגרת בעיצור), גָה – הברה פתוחה (מסתיימת בתנועה)."
     }
   ]
 };
-
-function getLessonKey() {
-  const path = window.location.pathname;
-  if (path.includes("syllable")) return "syllable";
-  return "intro";
-}
-
-let currentQ = 0;
-let score = 0;
-let exerciseOrder = [];
 
 function shuffleArray(arr) {
   for (let i = arr.length - 1; i > 0; i--) {
@@ -225,6 +237,20 @@ function shuffleOptions(options, correctIdx) {
     correct: newCorrect
   };
 }
+
+function dragStart(e, idx) {
+  e.dataTransfer.setData("text/plain", idx);
+}
+
+function getLessonKey() {
+  const path = window.location.pathname;
+  if (path.includes("syllable")) return "syllable";
+  return "intro";
+}
+
+let currentQ = 0;
+let score = 0;
+let exerciseOrder = [];
 
 function startExercise() {
   const intro = document.getElementById('exercise-intro');
@@ -247,10 +273,6 @@ function startExercise() {
     }
   });
   showExerciseQuestion();
-}
-
-function dragStart(e, idx) {
-  e.dataTransfer.setData("text/plain", idx);
 }
 
 function showExerciseQuestion() {
@@ -333,7 +355,27 @@ function showExerciseQuestion() {
           `).join('')}
         </div>
         <div style="margin-top:0.7em;font-size:1.05em;color:#888;">${ex.word}</div>
-        <button type="button" class="ws-btn" id="reset-split-drag-btn" style="margin-top:0.7em;">אפס הכל</button>
+        <button type="submit" class="ws-btn" id="exercise-btn">בדוק תשובה »</button>
+      </form>
+      <div id="exercise-feedback"></div>
+    `;
+  }
+  else if (ex.type === "syllable-type") {
+    const options = ["הברה פתוחה", "הברה סגורה"];
+    html += `
+      <form id="exercise-form" onsubmit="event.preventDefault(); checkExercise();">
+        <div class="syllable-type-inputs" style="display:flex;gap:0.7em;justify-content:center;align-items:flex-end;">
+          ${ex.syllables.map((syll, i) => `
+            <div style="display:flex;flex-direction:column;align-items:center;">
+              <div style="font-weight:bold;font-size:1.1em;margin-bottom:0.3em;">${syll}</div>
+              <select class="syllable-type-field" id="sylltype${i}" style="width:120px;text-align:center;font-size:1em;padding:0.3em 0.2em;border-radius:7px;border:1.5px solid #e6eaf2;background:#f7fafd;">
+                <option value="">בחרו סוג</option>
+                ${options.map(opt => `<option value="${opt}">${opt}</option>`).join('')}
+              </select>
+            </div>
+          `).join('')}
+        </div>
+        <div style="margin-top:0.7em;font-size:1.05em;color:#888;">${ex.word}</div>
         <button type="submit" class="ws-btn" id="exercise-btn">בדוק תשובה »</button>
       </form>
       <div id="exercise-feedback"></div>
@@ -391,12 +433,21 @@ function showExerciseQuestion() {
       zone.ondblclick = function() {
         const text = zone.getAttribute('data-option');
         if (zone.textContent.trim() !== "" && text) {
-          document.querySelectorAll('.drag-item').forEach(item => {
-            if (item.getAttribute('data-option') === text) {
-              item.style.visibility = "";
-              item.setAttribute('draggable', true);
-            }
-          });
+          const dragOptionsDiv = document.getElementById('drag-options');
+          const newDrag = document.createElement('div');
+          newDrag.className = "drag-item";
+          newDrag.setAttribute('draggable', true);
+          newDrag.setAttribute('data-option', text);
+          newDrag.textContent = text;
+          newDrag.ondragstart = function(e) {
+            e.dataTransfer.setData("text/plain", text);
+            setTimeout(() => newDrag.classList.add('dragging'), 0);
+          };
+          newDrag.ondragend = function() {
+            newDrag.classList.remove('dragging');
+          };
+          dragOptionsDiv.appendChild(newDrag);
+
           zone.textContent = "";
           zone.setAttribute('data-option', "");
           zone.classList.remove("filled");
@@ -405,21 +456,6 @@ function showExerciseQuestion() {
       };
     });
 
-    const resetBtn = document.getElementById('reset-split-drag-btn');
-    if (resetBtn) {
-      resetBtn.onclick = function() {
-        document.querySelectorAll('.split-dropzone').forEach(zone => {
-          zone.textContent = "";
-          zone.setAttribute('data-option', "");
-          zone.classList.remove("filled");
-        });
-        document.querySelectorAll('.drag-item').forEach(item => {
-          item.style.visibility = "";
-          item.setAttribute('draggable', true);
-        });
-        updateDragLayout();
-      };
-    }
     updateDragLayout();
   }
 }
@@ -503,11 +539,28 @@ function checkExercise() {
       zone.ondragover = null;
       zone.ondblclick = null;
     });
-    const resetBtn = document.getElementById('reset-split-drag-btn');
-    if (resetBtn) resetBtn.style.display = "none";
     btn.textContent = (currentQ < exerciseOrder.length - 1) ? "המשך" : "סיים תרגול";
     btn.onclick = nextExercise;
     btn.type = "button";
+    document.querySelectorAll('.syllable-type-field').forEach(input => input.disabled = true);
+    return;
+  }
+  else if (ex.type === "syllable-type") {
+    let correct = true;
+    for (let i = 0; i < ex.syllables.length; i++) {
+      const val = (document.getElementById(`sylltype${i}`).value || "").trim();
+      if (val !== ex.types[i]) correct = false;
+    }
+    if (correct) {
+      score++;
+      feedback.innerHTML = `<span class="exercise-correct">✔ נכון!</span><div class="exercise-explain">${ex.explain}</div>`;
+    } else {
+      feedback.innerHTML = `<span class="exercise-wrong">✖ לא נכון.</span><div class="exercise-explain">${ex.explain}</div>`;
+    }
+    btn.textContent = (currentQ < exerciseOrder.length - 1) ? "המשך" : "סיים תרגול";
+    btn.onclick = nextExercise;
+    btn.type = "button";
+    document.querySelectorAll('.syllable-type-field').forEach(input => input.disabled = true);
     return;
   }
 
